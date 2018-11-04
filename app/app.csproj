@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="data\exception\ArgumentCastException.cs" />
+    <Compile Include="data\exception\InputArgumenException.cs" />
+    <Compile Include="data\exception\UnknownTypeCommand.cs" />
     <Compile Include="domain\CommandInjector.cs" />
     <Compile Include="data\LiveData.cs" />
     <Compile Include="domain\command\ICommand.cs" />

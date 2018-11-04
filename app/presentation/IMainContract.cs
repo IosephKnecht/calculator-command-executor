@@ -9,7 +9,7 @@ namespace app.presentation
     interface Interactor
     {
         void GetCommands();
-        void ExecuteCommand();
+        void ExecuteCommand(params object[] values);
     }
 
     interface ViewModel
