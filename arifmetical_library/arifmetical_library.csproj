@@ -47,6 +47,7 @@
     <Compile Include="MinusCommand.cs" />
     <Compile Include="PlusCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SinusCommand.cs" />
     <Compile Include="SqrtCommand.cs" />
     <Compile Include="SquaringCommand.cs" />
   </ItemGroup>
