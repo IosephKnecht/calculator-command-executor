@@ -1,4 +1,5 @@
-﻿using app;
+﻿using System;
+using app;
 
 namespace arifmetical_library
 {
@@ -6,7 +7,7 @@ namespace arifmetical_library
     {
         public override double Execute()
         {
-            return operand * operand;
+            return Math.Pow(operand, 2);
         }
     }
 }
