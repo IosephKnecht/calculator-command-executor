@@ -11,12 +11,12 @@ namespace app
         protected Double firstOperand;
         protected Double secondOperand;
 
-        protected virtual void setFirstOperand(Double operand)
+        public virtual void setFirstOperand(Double operand)
         {
             this.firstOperand = operand;
         }
 
-        protected virtual void setSecondOperand(Double operand)
+        public virtual void setSecondOperand(Double operand)
         {
             this.secondOperand = operand;
         }

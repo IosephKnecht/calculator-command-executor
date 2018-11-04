@@ -29,6 +29,7 @@ namespace app.presentation
                 {
                     MessageBox.Show("Error");
                 }
+                CleanTextView();
             });
 
             viewModel.GetCommandListObservable().Observe(list => {
@@ -69,7 +70,21 @@ namespace app.presentation
 
         private void execute_button_Click(object sender, EventArgs e)
         {
-            interactor.ExecuteCommand();
+            interactor.ExecuteCommand(ReceiveData());
+        }
+
+        private void CleanTextView()
+        {
+            tv_first_operand.Text = null;
+            tv_second_operand.Text = null;
+        }
+
+
+        private object[] ReceiveData()
+        {
+            var firstOperand = tv_first_operand.Text.Trim();
+            var secondOperand = tv_second_operand.Text.Trim();
+            return new object[] { firstOperand, secondOperand };
         }
     }
 }
