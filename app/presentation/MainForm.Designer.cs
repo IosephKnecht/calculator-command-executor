@@ -72,6 +72,7 @@
             // 
             // tv_result
             // 
+            this.tv_result.Enabled = false;
             this.tv_result.Location = new System.Drawing.Point(12, 98);
             this.tv_result.Name = "tv_result";
             this.tv_result.Size = new System.Drawing.Size(171, 20);
