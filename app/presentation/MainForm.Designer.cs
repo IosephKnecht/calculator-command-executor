@@ -52,6 +52,7 @@
             this.tv_first_operand.Name = "tv_first_operand";
             this.tv_first_operand.Size = new System.Drawing.Size(171, 20);
             this.tv_first_operand.TabIndex = 1;
+            this.tv_first_operand.Text = "Please, enter operand";
             // 
             // tv_second_operand
             // 
@@ -59,6 +60,7 @@
             this.tv_second_operand.Name = "tv_second_operand";
             this.tv_second_operand.Size = new System.Drawing.Size(171, 20);
             this.tv_second_operand.TabIndex = 2;
+            this.tv_second_operand.Text = "Please, enter operand";
             // 
             // execute_button
             // 
