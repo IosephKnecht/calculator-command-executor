@@ -9,10 +9,10 @@ namespace app.presentation
 {
     class MainViewModel: ViewModel, Interactor
     {
-        private LiveData<ICommand> currentCommandObservable = new LiveData<ICommand>();
-        private LiveData<List<ICommand>> commandsObservable = new LiveData<List<ICommand>>();
-        private LiveData<Double> resultObservable = new LiveData<double>();
-        private LiveData<Exception> throwableObservable = new LiveData<Exception>();
+        private IMutableLiveData<ICommand> currentCommandObservable = new LiveData<ICommand>();
+        private IMutableLiveData<List<ICommand>> commandsObservable = new LiveData<List<ICommand>>();
+        private IMutableLiveData<Double> resultObservable = new LiveData<double>();
+        private IMutableLiveData<Exception> throwableObservable = new LiveData<Exception>();
 
         public MainViewModel()
         {
@@ -43,12 +43,12 @@ namespace app.presentation
         #endregion
 
         #region ViewModel Scope
-        public LiveData<ICommand> GetCurrentCommandObservable()
+        public IMutableLiveData<ICommand> GetCurrentCommandObservable()
         {
             return currentCommandObservable;
         }
 
-        public LiveData<List<ICommand>> GetCommandListObservable()
+        public ILiveData<List<ICommand>> GetCommandListObservable()
         {
             return commandsObservable;
         }
@@ -59,12 +59,12 @@ namespace app.presentation
             commandsObservable.Unsubscribe();
         }
 
-        public LiveData<double> GetResultObservable()
+        public ILiveData<double> GetResultObservable()
         {
             return resultObservable;
         }
 
-        public LiveData<Exception> GetThrowableObservable()
+        public ILiveData<Exception> GetThrowableObservable()
         {
             return throwableObservable;
         }

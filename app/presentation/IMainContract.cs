@@ -14,10 +14,10 @@ namespace app.presentation
 
     interface ViewModel
     {
-        LiveData<ICommand> GetCurrentCommandObservable();
-        LiveData<List<ICommand>> GetCommandListObservable();
-        LiveData<Double> GetResultObservable();
-        LiveData<Exception> GetThrowableObservable();
+        IMutableLiveData<ICommand> GetCurrentCommandObservable();
+        ILiveData<List<ICommand>> GetCommandListObservable();
+        ILiveData<Double> GetResultObservable();
+        ILiveData<Exception> GetThrowableObservable();
 
         void Unsubscribe();
     }
