@@ -90,6 +90,7 @@
             this.copy_first_operand.TabIndex = 5;
             this.copy_first_operand.Text = "<";
             this.copy_first_operand.UseVisualStyleBackColor = true;
+            this.copy_first_operand.Click += new System.EventHandler(this.copy_first_operand_Click);
             // 
             // copy_second_operand
             // 
@@ -99,6 +100,7 @@
             this.copy_second_operand.TabIndex = 6;
             this.copy_second_operand.Text = "<";
             this.copy_second_operand.UseVisualStyleBackColor = true;
+            this.copy_second_operand.Click += new System.EventHandler(this.copy_second_operand_Click);
             // 
             // hint_box
             // 

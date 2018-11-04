@@ -38,7 +38,7 @@ namespace app.presentation
 
             viewModel.GetResultObservable().Observe(result =>
             {
-                MessageBox.Show(result.ToString());
+                tv_result.Text = result.ToString();
             });
 
             viewModel.GetThrowableObservable().Observe(error =>
@@ -77,6 +77,7 @@ namespace app.presentation
         {
             tv_first_operand.Text = null;
             tv_second_operand.Text = null;
+            tv_result.Text = null;
         }
 
 
@@ -91,6 +92,22 @@ namespace app.presentation
         {
             var owner = (IWin32Window)sender;
             hint_box.Show("Please, enter operand", owner);
+        }
+
+        private void OnClipboardPaste(TextBox textBox)
+        {
+            var clipboardText = Clipboard.GetText();
+            if (textBox.Visible && clipboardText != null) textBox.Text = clipboardText;
+        }
+
+        private void copy_first_operand_Click(object sender, EventArgs e)
+        {
+            OnClipboardPaste(tv_first_operand);
+        }
+
+        private void copy_second_operand_Click(object sender, EventArgs e)
+        {
+            OnClipboardPaste(tv_second_operand);
         }
     }
 }
