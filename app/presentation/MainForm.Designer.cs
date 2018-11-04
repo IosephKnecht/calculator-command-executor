@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.command_selector = new System.Windows.Forms.ComboBox();
             this.tv_first_operand = new System.Windows.Forms.TextBox();
             this.tv_second_operand = new System.Windows.Forms.TextBox();
@@ -35,6 +36,7 @@
             this.tv_result = new System.Windows.Forms.TextBox();
             this.copy_first_operand = new System.Windows.Forms.Button();
             this.copy_second_operand = new System.Windows.Forms.Button();
+            this.hint_box = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // command_selector
@@ -52,7 +54,7 @@
             this.tv_first_operand.Name = "tv_first_operand";
             this.tv_first_operand.Size = new System.Drawing.Size(171, 20);
             this.tv_first_operand.TabIndex = 1;
-            this.tv_first_operand.Text = "Please, enter operand";
+            this.tv_first_operand.MouseEnter += new System.EventHandler(this.OnHintEnterForInput);
             // 
             // tv_second_operand
             // 
@@ -60,7 +62,7 @@
             this.tv_second_operand.Name = "tv_second_operand";
             this.tv_second_operand.Size = new System.Drawing.Size(171, 20);
             this.tv_second_operand.TabIndex = 2;
-            this.tv_second_operand.Text = "Please, enter operand";
+            this.tv_second_operand.MouseEnter += new System.EventHandler(this.OnHintEnterForInput);
             // 
             // execute_button
             // 
@@ -98,6 +100,10 @@
             this.copy_second_operand.Text = "<";
             this.copy_second_operand.UseVisualStyleBackColor = true;
             // 
+            // hint_box
+            // 
+            this.hint_box.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -127,5 +133,6 @@
         private System.Windows.Forms.TextBox tv_result;
         private System.Windows.Forms.Button copy_first_operand;
         private System.Windows.Forms.Button copy_second_operand;
+        private System.Windows.Forms.ToolTip hint_box;
     }
 }
