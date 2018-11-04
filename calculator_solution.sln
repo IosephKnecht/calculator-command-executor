@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2048
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "arifmetical_library", "arifmetical_library\arifmetical_library.csproj", "{A81454DE-744A-49A9-99BB-9F023D310CD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "app", "app\app.csproj", "{E38D9098-AED0-41FD-B661-EF2DBCA51CD8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A81454DE-744A-49A9-99BB-9F023D310CD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A81454DE-744A-49A9-99BB-9F023D310CD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A81454DE-744A-49A9-99BB-9F023D310CD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A81454DE-744A-49A9-99BB-9F023D310CD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E38D9098-AED0-41FD-B661-EF2DBCA51CD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E38D9098-AED0-41FD-B661-EF2DBCA51CD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E38D9098-AED0-41FD-B661-EF2DBCA51CD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E38D9098-AED0-41FD-B661-EF2DBCA51CD8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {11250807-F883-4E35-B3B2-CB230B62983C}
+	EndGlobalSection
+EndGlobal
