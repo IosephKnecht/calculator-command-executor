@@ -86,5 +86,11 @@ namespace app.presentation
             var secondOperand = tv_second_operand.Text.Trim();
             return new object[] { firstOperand, secondOperand };
         }
+
+        private void OnHintEnterForInput(object sender,EventArgs e)
+        {
+            var owner = (IWin32Window)sender;
+            hint_box.Show("Please, enter operand", owner);
+        }
     }
 }
