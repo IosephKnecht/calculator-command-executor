@@ -41,12 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DivisionWithoutRemainderCommand.cs" />
     <Compile Include="DivisionWithRemainderCommand.cs" />
     <Compile Include="MultiplyCommand.cs" />
     <Compile Include="MinusCommand.cs" />
     <Compile Include="PlusCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SinusCommand.cs" />
     <Compile Include="SqrtCommand.cs" />
+    <Compile Include="SquaringCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\app\app.csproj">
