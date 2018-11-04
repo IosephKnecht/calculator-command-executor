@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArctangesCommand.cs" />
+    <Compile Include="CosineCommand.cs" />
     <Compile Include="DivisionWithoutRemainderCommand.cs" />
     <Compile Include="DivisionWithRemainderCommand.cs" />
     <Compile Include="MultiplyCommand.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="SinusCommand.cs" />
     <Compile Include="SqrtCommand.cs" />
     <Compile Include="SquaringCommand.cs" />
+    <Compile Include="TangensCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\app\app.csproj">
