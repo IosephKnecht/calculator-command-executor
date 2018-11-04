@@ -51,6 +51,7 @@
     <Compile Include="SinusCommand.cs" />
     <Compile Include="SqrtCommand.cs" />
     <Compile Include="SquaringCommand.cs" />
+    <Compile Include="TangensCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\app\app.csproj">
