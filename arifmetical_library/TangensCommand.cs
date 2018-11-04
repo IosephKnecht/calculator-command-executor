@@ -7,7 +7,7 @@ namespace arifmetical_library
     {
         public override double Execute()
         {
-            return Math.Cos(operand);
+            return Math.Tan(operand);
         }
     }
 }
