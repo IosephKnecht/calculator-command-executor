@@ -3,7 +3,7 @@ using app;
 
 namespace arifmetical_library
 {
-    public class CotangesCommand:OneOperandCommand
+    public class ArctangesCommand:OneOperandCommand
     {
         public override double Execute()
         {
