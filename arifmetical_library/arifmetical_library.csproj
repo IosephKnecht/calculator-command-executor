@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DivisionWithoutRemainderCommand.cs" />
+    <Compile Include="DivisionWithRemainderCommand.cs" />
     <Compile Include="MultiplyCommand.cs" />
     <Compile Include="MinusCommand.cs" />
     <Compile Include="PlusCommand.cs" />
