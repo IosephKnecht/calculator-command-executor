@@ -6,28 +6,39 @@ using System.Threading.Tasks;
 
 namespace app
 {
-    class LiveData<T>
+    interface IMutableLiveData<T>:ILiveData<T>
     {
-        public delegate void Change(T value);
+        void SetValue(T value);
+    }
 
-        private T pep = default(T);
+    public interface ILiveData<T>
+    {
+        void Observe(Action<T> block);
+        T GetValue();
+        void Unsubscribe();
+    }
 
-        private List<Change> changes = new List<Change>();
 
-        public void Observe(Change block)
+    class LiveData<T>:ILiveData<T>,IMutableLiveData<T>
+    {
+        private T value = default(T);
+
+        private List<Action<T>> changes = new List<Action<T>>();
+
+        public void Observe(Action<T> block)
         {
             changes.Add(block);
         }
 
         public void SetValue(T value)
         {
-            this.pep = value;
+            this.value = value;
             changes.ForEach(element => { element.Invoke(value); });
         }
 
         public T GetValue()
         {
-            return this.pep;
+            return this.value;
         }
 
         public void Unsubscribe()
