@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace app.domain
 {
+    /// <summary>
+    /// Util for validation operand.
+    /// </summary>
     static class ArgumentValidator
     {
         public static bool isDouble(object value)

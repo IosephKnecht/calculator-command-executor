@@ -9,6 +9,9 @@ using System.Windows.Forms;
 
 namespace app.presentation
 {
+    /// <summary>
+    /// Is part of the architecture M(V)VM.
+    /// </summary>
     public partial class MainForm : Form
     {
         private Interactor interactor;

@@ -7,7 +7,10 @@ using app.data.exception;
 
 namespace app.presentation
 {
-    class MainViewModel: ViewModel, Interactor
+    /// <summary>
+    /// ViewModel for MainView. Is part of the architecture MV(VM).
+    /// </summary>
+    class MainViewModel : ViewModel, Interactor
     {
         private IMutableLiveData<ICommand> currentCommandObservable = new LiveData<ICommand>();
         private IMutableLiveData<List<ICommand>> commandsObservable = new LiveData<List<ICommand>>();
@@ -70,6 +73,11 @@ namespace app.presentation
         }
         #endregion
 
+        /// <summary>
+        /// So do bad. Method for the logic of supplying arguments to the command.
+        /// </summary>
+        /// <param name="values">all params from operand's TextBoxes</param>
+        /// <returns>true, if supplying success</returns>
         private bool checkParameters(object[] values)
         {
             var command = currentCommandObservable.GetValue();

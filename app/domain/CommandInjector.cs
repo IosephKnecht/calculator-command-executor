@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace app
 {
+    /// <summary>
+    /// Singleton service for inject command from dll's file.
+    /// </summary>
     class CommandInjector
     {
         private static CommandInjector commandInjector = null;

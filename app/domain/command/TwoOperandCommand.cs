@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace app
 {
+    /// <summary>
+    /// Class for two operand command;
+    /// </summary>
     public abstract class TwoOperandCommand : ICommand
     {
         protected Double firstOperand;
