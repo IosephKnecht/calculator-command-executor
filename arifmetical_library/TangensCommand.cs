@@ -9,5 +9,10 @@ namespace arifmetical_library
         {
             return Math.Tan(operand);
         }
+
+        public override string ToString()
+        {
+            return "tangens";
+        }
     }
 }

@@ -9,5 +9,10 @@ namespace arifmetical_library
         {
             return Math.Cos(operand);
         }
+
+        public override string ToString()
+        {
+            return "cosine";
+        }
     }
 }

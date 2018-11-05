@@ -13,5 +13,10 @@ namespace arifmetical_library
         {
             return Math.Sqrt(operand);
         }
+
+        public override string ToString()
+        {
+            return "square root";
+        }
     }
 }

@@ -8,5 +8,10 @@ namespace arifmetical_library
         {
             return firstOperand - secondOperand;
         }
+
+        public override string ToString()
+        {
+            return "minus";
+        }
     }
 }

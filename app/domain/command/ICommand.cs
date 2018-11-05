@@ -14,11 +14,5 @@ namespace app
         /// </summary>
         /// <returns></returns>
         Double Execute();
-
-        /// <summary>
-        /// Method for get name command;
-        /// </summary>
-        /// <returns></returns>
-        String GetName();
     }
 }

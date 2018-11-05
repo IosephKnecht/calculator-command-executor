@@ -9,5 +9,10 @@ namespace arifmetical_library
         {
             return Math.Pow(operand, 2);
         }
+
+        public override string ToString()
+        {
+            return "squaring";
+        }
     }
 }

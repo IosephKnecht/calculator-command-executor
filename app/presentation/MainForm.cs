@@ -150,7 +150,7 @@ namespace app.presentation
         private void OnClipboardPaste(TextBox textBox)
         {
             var clipboardText = Clipboard.GetText();
-            if (textBox.Visible && clipboardText != null) textBox.Text = clipboardText;
+            if (textBox.Visible && clipboardText != null && clipboardText!="") textBox.Text = clipboardText;
         }
 
         private void copy_first_operand_Click(object sender, EventArgs e)

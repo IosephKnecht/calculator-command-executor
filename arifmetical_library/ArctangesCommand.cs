@@ -9,5 +9,10 @@ namespace arifmetical_library
         {
             return Math.Atan(operand);
         }
+
+        public override string ToString()
+        {
+            return "arctangent";
+        }
     }
 }
