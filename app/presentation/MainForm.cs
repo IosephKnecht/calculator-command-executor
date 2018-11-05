@@ -31,13 +31,14 @@ namespace app.presentation
 
             inject();
 
-            viewModel.GetCurrentCommandObservable().Observe(command => {
-                if(command is OneOperandCommand)
+            viewModel.GetCurrentCommandObservable().Observe(command =>
+            {
+                if (command is OneOperandCommand)
                 {
                     tv_first_operand.Visible = true;
                     tv_second_operand.Visible = false;
                 }
-                else if(command is TwoOperandCommand)
+                else if (command is TwoOperandCommand)
                 {
                     tv_first_operand.Visible = true;
                     tv_second_operand.Visible = true;
@@ -50,8 +51,9 @@ namespace app.presentation
                 ReloadBackColor();
             });
 
-            viewModel.GetCommandListObservable().Observe(list => {
-                command_selector.Items.AddRange(list.ToArray()); 
+            viewModel.GetCommandListObservable().Observe(list =>
+            {
+                command_selector.Items.AddRange(list.ToArray());
             });
 
             viewModel.GetResultObservable().Observe(result =>
@@ -67,8 +69,9 @@ namespace app.presentation
             compositeDisposable.Add(firsrOperandSubject.Throttle(TimeSpan.FromMilliseconds(500))
                 .SubscribeOn(scheduler: Scheduler.Immediate)
                 .ObserveOn(this.tv_first_operand)
-                .Subscribe(str=> {
-                    if (!ArgumentValidator.isDouble(str))
+                .Subscribe(str =>
+                {
+                    if (str != "" && !ArgumentValidator.isDouble(str))
                     {
                         tv_first_operand.BackColor = alertColor;
                     }
@@ -81,8 +84,9 @@ namespace app.presentation
             compositeDisposable.Add(secondOperandSubject.Throttle(TimeSpan.FromMilliseconds(500))
                 .SubscribeOn(Scheduler.Immediate)
                 .ObserveOn(this.tv_second_operand)
-                .Subscribe(str=> {
-                    if (!ArgumentValidator.isDouble(str))
+                .Subscribe(str =>
+                {
+                    if (str != "" && !ArgumentValidator.isDouble(str))
                     {
                         tv_second_operand.BackColor = alertColor;
                     }
@@ -98,7 +102,7 @@ namespace app.presentation
         private void command_selector_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox view = (ComboBox)sender;
-            var command = (ICommand) view.SelectedItem;
+            var command = (ICommand)view.SelectedItem;
             viewModel.GetCurrentCommandObservable().SetValue(command);
         }
 
@@ -141,7 +145,7 @@ namespace app.presentation
             return new object[] { firstOperand, secondOperand };
         }
 
-        private void OnHintEnterForInput(object sender,EventArgs e)
+        private void OnHintEnterForInput(object sender, EventArgs e)
         {
             var owner = (IWin32Window)sender;
             hint_box.Show("Please, enter operand", owner);
@@ -150,7 +154,7 @@ namespace app.presentation
         private void OnClipboardPaste(TextBox textBox)
         {
             var clipboardText = Clipboard.GetText();
-            if (textBox.Visible && clipboardText != null && clipboardText!="") textBox.Text = clipboardText;
+            if (textBox.Visible && clipboardText != null && clipboardText != "") textBox.Text = clipboardText;
         }
 
         private void copy_first_operand_Click(object sender, EventArgs e)
@@ -167,10 +171,8 @@ namespace app.presentation
         {
             TextBox textBox = (TextBox)sender;
             var emit = textBox.Text;
-            if (emit != null && emit != "")
-            {
-                subject.OnNext(emit);
-            }
+            if (emit != null) subject.OnNext(emit);
+
         }
 
         private void OnFirstOperandChanged(object sender, EventArgs e)
