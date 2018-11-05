@@ -8,6 +8,9 @@ namespace app.data.exception
 {
     class UnknownTypeCommand : Exception
     {
+        /// <summary>
+        /// Custom exception for unknown type of ICommand.
+        /// </summary>
         public UnknownTypeCommand() : base("Type of command is undefinied")
         {
         }
