@@ -54,6 +54,7 @@
             this.tv_first_operand.Name = "tv_first_operand";
             this.tv_first_operand.Size = new System.Drawing.Size(171, 20);
             this.tv_first_operand.TabIndex = 1;
+            this.tv_first_operand.TextChanged += new System.EventHandler(this.OnFirstOperandChanged);
             this.tv_first_operand.MouseEnter += new System.EventHandler(this.OnHintEnterForInput);
             // 
             // tv_second_operand
@@ -62,6 +63,7 @@
             this.tv_second_operand.Name = "tv_second_operand";
             this.tv_second_operand.Size = new System.Drawing.Size(171, 20);
             this.tv_second_operand.TabIndex = 2;
+            this.tv_second_operand.TextChanged += new System.EventHandler(this.OnSecondOperandChanged);
             this.tv_second_operand.MouseEnter += new System.EventHandler(this.OnHintEnterForInput);
             // 
             // execute_button

@@ -1,4 +1,10 @@
-﻿using System;
+﻿using app.domain;
+using System;
+using System.Drawing;
+using System.Reactive.Concurrency;
+using System.Reactive.Disposables;
+using System.Reactive.Linq;
+using System.Reactive.Subjects;
 using System.Windows.Forms;
 
 namespace app.presentation
@@ -7,6 +13,14 @@ namespace app.presentation
     {
         private Interactor interactor;
         private ViewModel viewModel;
+
+        private Subject<String> firsrOperandSubject = new Subject<string>();
+        private Subject<String> secondOperandSubject = new Subject<string>();
+
+        private CompositeDisposable compositeDisposable = new CompositeDisposable();
+
+        private Color alertColor = Color.Red;
+        private Color defaultColor = Color.White;
 
         public MainForm()
         {
@@ -30,6 +44,7 @@ namespace app.presentation
                     MessageBox.Show("Error");
                 }
                 CleanTextView();
+                ReloadBackColor();
             });
 
             viewModel.GetCommandListObservable().Observe(list => {
@@ -45,6 +60,34 @@ namespace app.presentation
             {
                 MessageBox.Show(error.Message);
             });
+
+            compositeDisposable.Add(firsrOperandSubject.Throttle(TimeSpan.FromMilliseconds(500))
+                .SubscribeOn(scheduler: Scheduler.Immediate)
+                .ObserveOn(this.tv_first_operand)
+                .Subscribe(str=> {
+                    if (!ArgumentValidator.isDouble(str))
+                    {
+                        tv_first_operand.BackColor = alertColor;
+                    }
+                    else
+                    {
+                        tv_first_operand.BackColor = defaultColor;
+                    }
+                }));
+
+            compositeDisposable.Add(secondOperandSubject.Throttle(TimeSpan.FromMilliseconds(500))
+                .SubscribeOn(Scheduler.Immediate)
+                .ObserveOn(this.tv_second_operand)
+                .Subscribe(str=> {
+                    if (!ArgumentValidator.isDouble(str))
+                    {
+                        tv_second_operand.BackColor = alertColor;
+                    }
+                    else
+                    {
+                        tv_second_operand.BackColor = defaultColor;
+                    }
+                }));
 
             interactor.GetCommands();
         }
@@ -65,6 +108,7 @@ namespace app.presentation
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            compositeDisposable.Clear();
             viewModel.Unsubscribe();
         }
 
@@ -78,6 +122,12 @@ namespace app.presentation
             tv_first_operand.Text = null;
             tv_second_operand.Text = null;
             tv_result.Text = null;
+        }
+
+        private void ReloadBackColor()
+        {
+            tv_first_operand.BackColor = defaultColor;
+            tv_second_operand.BackColor = defaultColor;
         }
 
 
@@ -108,6 +158,26 @@ namespace app.presentation
         private void copy_second_operand_Click(object sender, EventArgs e)
         {
             OnClipboardPaste(tv_second_operand);
+        }
+
+        private void NotifySubject(object sender, ISubject<String> subject)
+        {
+            TextBox textBox = (TextBox)sender;
+            var emit = textBox.Text;
+            if (emit != null && emit != "")
+            {
+                subject.OnNext(emit);
+            }
+        }
+
+        private void OnFirstOperandChanged(object sender, EventArgs e)
+        {
+            NotifySubject(sender, firsrOperandSubject);
+        }
+
+        private void OnSecondOperandChanged(object sender, EventArgs e)
+        {
+            NotifySubject(sender, secondOperandSubject);
         }
     }
 }
