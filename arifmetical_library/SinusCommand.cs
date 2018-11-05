@@ -9,5 +9,10 @@ namespace arifmetical_library
         {
             return Math.Sin(operand);
         }
+
+        public override string ToString()
+        {
+            return "sinus";
+        }
     }
 }

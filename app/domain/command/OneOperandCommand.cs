@@ -20,7 +20,7 @@ namespace app
 
         public abstract Double Execute();
 
-        public virtual string GetName()
+        public override string ToString()
         {
             return "It's not implemented one operand command";
         }

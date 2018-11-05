@@ -9,5 +9,10 @@ namespace arifmetical_library
         {
             return Math.Log(operand);
         }
+
+        public override string ToString()
+        {
+            return "natural logarithm";
+        }
     }
 }
