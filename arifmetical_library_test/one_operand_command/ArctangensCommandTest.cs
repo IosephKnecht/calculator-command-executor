@@ -1,4 +1,3 @@
-﻿using System;
 using arifmetical_library;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
