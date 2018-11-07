@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="one_operand_command\AbstractOneOperandCommandTest.cs" />
     <Compile Include="one_operand_command\SqrtCommandTest.cs" />
+    <Compile Include="one_operand_command\SquaringCommandTest.cs" />
     <Compile Include="one_operand_command\TangensCommandTest.cs" />
     <Compile Include="two_operand_command\AbstractTwoOperandCommandUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
