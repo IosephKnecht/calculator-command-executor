@@ -38,9 +38,14 @@ namespace arifmetical_library_test
             this.command = command;
         }
 
-        public virtual void TestTwoOperandCommand()
+        public virtual void PositiveTestTwoOperandCommand()
         {
             Assert.AreEqual(expectedValue, this.command.Execute());
+        }
+
+        public virtual void NegativeTestTwoOperandCommand()
+        {
+            Assert.AreNotEqual(expectedValue, this.command.Execute());
         }
     }
 }

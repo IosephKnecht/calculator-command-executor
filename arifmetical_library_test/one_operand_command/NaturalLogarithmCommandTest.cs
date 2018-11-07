@@ -7,12 +7,21 @@ namespace arifmetical_library_test.one_operand_command
     public class NaturalLogarithmCommandTest : AbstractOneOperandCommandTest
     {
         [TestMethod]
-        public override void TestOneOperandCommand()
+        public override void PositiveTestOneOperandCommand()
         {
             setCommand(new NaturalLogarithmCommand());
             SetOperand(1);
             SetExpectedValue(0);
-            base.TestOneOperandCommand();
+            base.PositiveTestOneOperandCommand();
+        }
+
+        [TestMethod]
+        public override void NegativeTestOneOperandCommand()
+        {
+            setCommand(new NaturalLogarithmCommand());
+            SetOperand(1);
+            SetExpectedValue(1);
+            base.NegativeTestOneOperandCommand();
         }
     }
 }

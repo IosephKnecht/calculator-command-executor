@@ -7,13 +7,23 @@ namespace arifmetical_library_test.two_operand_command
     public class DivisionWithoutRemainderCommandTest : AbstractTwoOperandCommandUnitTest
     {
         [TestMethod]
-        public override void TestTwoOperandCommand()
+        public override void PositiveTestTwoOperandCommand()
         {
             SetCommand(new DivisionWithoutRemainderCommand());
             SetFistOperand(50);
             SetSecondOperand(30);
             SetExpectedValue(1);
-            base.TestTwoOperandCommand();
+            base.PositiveTestTwoOperandCommand();
+        }
+
+        [TestMethod]
+        public override void NegativeTestTwoOperandCommand()
+        {
+            SetCommand(new DivisionWithoutRemainderCommand());
+            SetFistOperand(50);
+            SetSecondOperand(30);
+            SetExpectedValue(0);
+            base.NegativeTestTwoOperandCommand();
         }
     }
 }

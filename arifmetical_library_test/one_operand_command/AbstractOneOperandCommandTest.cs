@@ -30,9 +30,14 @@ namespace arifmetical_library_test
             this.expectedValue = expectedValue;
         }
 
-        public virtual void TestOneOperandCommand()
+        public virtual void PositiveTestOneOperandCommand()
         {
             Assert.AreEqual(Math.Round(expectedValue, 3), Math.Round(command.Execute(), 3));
+        }
+
+        public virtual void NegativeTestOneOperandCommand()
+        {
+            Assert.AreNotEqual(Math.Round(expectedValue, 3), Math.Round(command.Execute(), 3));
         }
     }
 }

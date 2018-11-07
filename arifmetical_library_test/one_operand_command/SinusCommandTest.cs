@@ -7,12 +7,21 @@ namespace arifmetical_library_test.one_operand_command
     public class SinusCommandTest : AbstractOneOperandCommandTest
     {
         [TestMethod]
-        public override void TestOneOperandCommand()
+        public override void PositiveTestOneOperandCommand()
         {
             setCommand(new SinusCommand());
             SetOperand(1);
             SetExpectedValue(0.841);
-            base.TestOneOperandCommand();
+            base.PositiveTestOneOperandCommand();
+        }
+
+        [TestMethod]
+        public override void NegativeTestOneOperandCommand()
+        {
+            setCommand(new SinusCommand());
+            SetOperand(1);
+            SetExpectedValue(2);
+            base.NegativeTestOneOperandCommand();
         }
     }
 }

@@ -8,12 +8,21 @@ namespace arifmetical_library_test.one_operand_command
     public class SqrtCommandTest:AbstractOneOperandCommandTest
     {
         [TestMethod]
-        public override void TestOneOperandCommand()
+        public override void PositiveTestOneOperandCommand()
         {
             setCommand(new SqrtCommand());
             SetOperand(100);
             SetExpectedValue(10);
-            base.TestOneOperandCommand();
+            base.PositiveTestOneOperandCommand();
+        }
+
+        [TestMethod]
+        public override void NegativeTestOneOperandCommand()
+        {
+            setCommand(new SqrtCommand());
+            SetOperand(100);
+            SetExpectedValue(100);
+            base.NegativeTestOneOperandCommand();
         }
     }
 }

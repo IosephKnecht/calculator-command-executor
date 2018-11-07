@@ -7,13 +7,23 @@ namespace arifmetical_library_test.two_operand_command
     public class MultiplyCommandTest : AbstractTwoOperandCommandUnitTest
     {
         [TestMethod]
-        public override void TestTwoOperandCommand()
+        public override void PositiveTestTwoOperandCommand()
         {
             SetCommand(new MultiplyCommand());
             SetFistOperand(35);
             SetSecondOperand(20);
             SetExpectedValue(700);
-            base.TestTwoOperandCommand();
+            base.PositiveTestTwoOperandCommand();
+        }
+
+        [TestMethod]
+        public override void NegativeTestTwoOperandCommand()
+        {
+            SetCommand(new MultiplyCommand());
+            SetFistOperand(35);
+            SetSecondOperand(20);
+            SetExpectedValue(100);
+            base.NegativeTestTwoOperandCommand();
         }
     }
 }

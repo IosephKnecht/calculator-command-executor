@@ -7,12 +7,21 @@ namespace arifmetical_library_test.one_operand_command
     public class TangensCommandTest : AbstractOneOperandCommandTest
     {
         [TestMethod]
-        public override void TestOneOperandCommand()
+        public override void PositiveTestOneOperandCommand()
         {
             setCommand(new TangensCommand());
             SetOperand(1);
             SetExpectedValue(1.557);
-            base.TestOneOperandCommand();
+            base.PositiveTestOneOperandCommand();
+        }
+
+        [TestMethod]
+        public override void NegativeTestOneOperandCommand()
+        {
+            setCommand(new TangensCommand());
+            SetOperand(1);
+            SetExpectedValue(2);
+            base.NegativeTestOneOperandCommand();
         }
     }
 }

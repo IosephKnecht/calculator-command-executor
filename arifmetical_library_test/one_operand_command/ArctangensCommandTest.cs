@@ -7,12 +7,21 @@ namespace arifmetical_library_test.one_operand_command
     public class ArctangensCommandTest:AbstractOneOperandCommandTest
     {
         [TestMethod]
-        public override void TestOneOperandCommand()
+        public override void PositiveTestOneOperandCommand()
         {
             setCommand(new ArctangesCommand());
             SetOperand(1);
             SetExpectedValue(0.785);
-            base.TestOneOperandCommand();
+            base.PositiveTestOneOperandCommand();
+        }
+
+        [TestMethod]
+        public override void NegativeTestOneOperandCommand()
+        {
+            setCommand(new ArctangesCommand());
+            SetOperand(1);
+            SetExpectedValue(2);
+            base.NegativeTestOneOperandCommand();
         }
     }
 }
