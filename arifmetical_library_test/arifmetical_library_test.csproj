@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="one_operand_command\AbstractOneOperandCommandTest.cs" />
+    <Compile Include="one_operand_command\CosineCommandTest.cs" />
     <Compile Include="one_operand_command\NaturalLogarithmCommandTest.cs" />
     <Compile Include="one_operand_command\SinusCommandTest.cs" />
     <Compile Include="one_operand_command\SqrtCommandTest.cs" />
