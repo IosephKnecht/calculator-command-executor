@@ -51,9 +51,18 @@
   <ItemGroup>
     <Compile Include="one_operand_command\AbstractOneOperandCommandTest.cs" />
     <Compile Include="one_operand_command\ArctangensCommandTest.cs" />
+    <Compile Include="one_operand_command\CosineCommandTest.cs" />
+    <Compile Include="one_operand_command\NaturalLogarithmCommandTest.cs" />
+    <Compile Include="one_operand_command\SinusCommandTest.cs" />
     <Compile Include="one_operand_command\SqrtCommandTest.cs" />
+    <Compile Include="one_operand_command\SquaringCommandTest.cs" />
+    <Compile Include="one_operand_command\TangensCommandTest.cs" />
     <Compile Include="two_operand_command\AbstractTwoOperandCommandUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="two_operand_command\DivisionWithoutRemainderCommandTest.cs" />
+    <Compile Include="two_operand_command\DivisionWithRemainderCommandTest.cs" />
+    <Compile Include="two_operand_command\MinusCommandTest.cs" />
+    <Compile Include="two_operand_command\MultiplyCommandTest.cs" />
     <Compile Include="two_operand_command\PlusCommandTest.cs" />
   </ItemGroup>
   <ItemGroup>
