@@ -10,8 +10,8 @@ namespace arifmetical_library_test.one_operand_command
         public override void TestOneOperandCommand()
         {
             setCommand(new TangensCommand());
-            SetOperand(0);
-            SetExpectedValue(0);
+            SetOperand(1);
+            SetExpectedValue(1.557);
             base.TestOneOperandCommand();
         }
     }

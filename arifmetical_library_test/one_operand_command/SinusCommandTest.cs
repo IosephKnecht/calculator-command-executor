@@ -10,8 +10,8 @@ namespace arifmetical_library_test.one_operand_command
         public override void TestOneOperandCommand()
         {
             setCommand(new SinusCommand());
-            SetOperand(0);
-            SetExpectedValue(0);
+            SetOperand(1);
+            SetExpectedValue(0.841);
             base.TestOneOperandCommand();
         }
     }

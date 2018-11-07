@@ -32,7 +32,7 @@ namespace arifmetical_library_test
 
         public virtual void TestOneOperandCommand()
         {
-            Assert.AreEqual(expectedValue, command.Execute());
+            Assert.AreEqual(Math.Round(expectedValue, 3), Math.Round(command.Execute(), 3));
         }
     }
 }

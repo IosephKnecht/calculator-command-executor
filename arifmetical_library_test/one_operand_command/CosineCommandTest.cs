@@ -10,8 +10,8 @@ namespace arifmetical_library_test.one_operand_command
         public override void TestOneOperandCommand()
         {
             setCommand(new CosineCommand());
-            SetOperand(0);
-            SetExpectedValue(1);
+            SetOperand(1);
+            SetExpectedValue(0.54);
             base.TestOneOperandCommand();
         }
     }
