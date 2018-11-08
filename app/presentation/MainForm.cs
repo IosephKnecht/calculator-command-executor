@@ -59,6 +59,7 @@ namespace app.presentation
             viewModel.GetResultObservable().Observe(result =>
             {
                 tv_result.Text = result.ToString();
+                Clipboard.SetText(result.ToString());
             });
 
             viewModel.GetThrowableObservable().Observe(error =>

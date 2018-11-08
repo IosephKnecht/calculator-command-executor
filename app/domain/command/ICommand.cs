@@ -14,5 +14,7 @@ namespace app
         /// </summary>
         /// <returns></returns>
         Double Execute();
+
+        void checkUnexpectedValue(Double value);
     }
 }

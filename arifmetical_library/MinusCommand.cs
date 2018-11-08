@@ -6,6 +6,8 @@ namespace arifmetical_library
     {
         public override double Execute()
         {
+            checkUnexpectedValue(firstOperand);
+            checkUnexpectedValue(secondOperand);
             return firstOperand - secondOperand;
         }
 

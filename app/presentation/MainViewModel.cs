@@ -16,6 +16,7 @@ namespace app.presentation
         private IMutableLiveData<List<ICommand>> commandsObservable = new LiveData<List<ICommand>>();
         private IMutableLiveData<Double> resultObservable = new LiveData<double>();
         private IMutableLiveData<Exception> throwableObservable = new LiveData<Exception>();
+        private IMutableLiveData<List<bool>> buttonVisibility = new LiveData<List<bool>>();
 
         public MainViewModel()
         {
@@ -35,7 +36,14 @@ namespace app.presentation
             {
                 if (checkParameters(values))
                 {
-                    resultObservable.SetValue(command.Execute());
+                    try
+                    {
+                        resultObservable.SetValue(command.Execute());
+                    }
+                    catch (Exception e)
+                    {
+                        throwableObservable.SetValue(e);
+                    }
                 }
             }
             else
@@ -81,9 +89,9 @@ namespace app.presentation
         private bool checkParameters(object[] values)
         {
             var command = currentCommandObservable.GetValue();
-            if(command is OneOperandCommand)
+            if (command is OneOperandCommand)
             {
-                if(values !=null && values.Length >= 1)
+                if (values != null && values.Length >= 1)
                 {
                     try
                     {
@@ -101,7 +109,7 @@ namespace app.presentation
                     throwableObservable.SetValue(new InputArgumenException());
                 }
             }
-            else if(command is TwoOperandCommand)
+            else if (command is TwoOperandCommand)
             {
                 if (values != null && values.Length >= 2)
                 {

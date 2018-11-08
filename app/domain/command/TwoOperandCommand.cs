@@ -1,4 +1,5 @@
-﻿using System;
+﻿using app.data.exception;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,6 +30,15 @@ namespace app
         public override string ToString()
         {
             return "It's not implemented two operand command";
+        }
+
+        public void checkUnexpectedValue(double value)
+        {
+            if (value != null || value != double.NaN || value != double.NegativeInfinity
+                || value != Double.PositiveInfinity)
+            {
+                throw new UnexpectedValueException();
+            }
         }
     }
 }

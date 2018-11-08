@@ -11,6 +11,7 @@ namespace arifmetical_library
     {
         public override Double Execute()
         {
+            checkUnexpectedValue(operand);
             return Math.Sqrt(operand);
         }
 

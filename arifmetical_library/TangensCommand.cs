@@ -7,6 +7,7 @@ namespace arifmetical_library
     {
         public override double Execute()
         {
+            checkUnexpectedValue(operand);
             return Math.Tan(operand);
         }
 

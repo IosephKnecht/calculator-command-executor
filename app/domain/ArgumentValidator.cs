@@ -16,12 +16,22 @@ namespace app.domain
             try
             {
                 var result = Convert.ToDouble(value);
-                return true;
+                return checkUnexpectedValue(result);
             }
             catch
             {
                 return false;
             }
+        }
+
+        private static bool checkUnexpectedValue(Double value)
+        {
+            if (value != null || value != double.NaN || value != double.NegativeInfinity
+                || value != Double.PositiveInfinity)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

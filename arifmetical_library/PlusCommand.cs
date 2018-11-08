@@ -11,6 +11,8 @@ namespace arifmetical_library
     {
         public override Double Execute()
         {
+            checkUnexpectedValue(firstOperand);
+            checkUnexpectedValue(secondOperand);
             return firstOperand + secondOperand;
         }
 
