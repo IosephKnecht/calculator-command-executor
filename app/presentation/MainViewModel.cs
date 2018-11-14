@@ -38,7 +38,7 @@ namespace app.presentation
                 {
                     try
                     {
-                        resultObservable.SetValue(command.Execute());
+                        resultObservable.SetValue(command.SafeExecute());
                     }
                     catch (Exception e)
                     {

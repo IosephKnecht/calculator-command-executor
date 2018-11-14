@@ -4,7 +4,7 @@ namespace arifmetical_library
 {
     public class MultiplyCommand:TwoOperandCommand
     {
-        public override double Execute()
+        protected override double Execute()
         {
             checkUnexpectedValue(firstOperand);
             checkUnexpectedValue(secondOperand);

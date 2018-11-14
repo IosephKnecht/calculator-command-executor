@@ -5,7 +5,7 @@ namespace arifmetical_library
 {
     public class CosineCommand:OneOperandCommand
     {
-        public override double Execute()
+        protected override double Execute()
         {
             checkUnexpectedValue(operand);
             return Math.Cos(operand);

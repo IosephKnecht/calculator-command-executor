@@ -26,12 +26,9 @@ namespace app.domain
 
         private static bool checkUnexpectedValue(Double value)
         {
-            if (value != null || value != double.NaN || value != double.NegativeInfinity
-                || value != Double.PositiveInfinity)
-            {
-                return false;
-            }
-            return true;
+            return !(Double.IsNaN(value) ||
+                Double.IsNegativeInfinity(value) ||
+                Double.IsPositiveInfinity(value));
         }
     }
 }

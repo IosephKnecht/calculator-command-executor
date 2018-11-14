@@ -19,20 +19,37 @@ namespace app
             this.operand = operand;
         }
 
-        public abstract Double Execute();
+        public virtual Double SafeExecute()
+        {
+            if (checkUnexpectedValue(operand)) throw new UnexpectedValueException();
+            else
+            {
+                var result = Execute();
+                if (checkUnexpectedValue(result))
+                {
+                    throw new UnexpectedValueException();
+                }
+                else
+                {
+                    return result;
+                }
+
+
+            }
+        }
+
+        protected abstract Double Execute();
 
         public override string ToString()
         {
             return "It's not implemented one operand command";
         }
 
-        public void checkUnexpectedValue(Double value)
+        public bool checkUnexpectedValue(Double value)
         {
-            if (value != null || value != double.NaN || value != double.NegativeInfinity
-                || value != Double.PositiveInfinity)
-            {
-                throw new UnexpectedValueException();
-            }
+            return Double.IsNaN(value) ||
+                Double.IsPositiveInfinity(value) ||
+                Double.IsNegativeInfinity(value);
         }
     }
 }

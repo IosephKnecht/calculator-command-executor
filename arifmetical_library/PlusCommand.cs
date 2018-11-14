@@ -9,7 +9,7 @@ namespace arifmetical_library
 {
     public class PlusCommand : TwoOperandCommand
     {
-        public override Double Execute()
+        protected override Double Execute()
         {
             checkUnexpectedValue(firstOperand);
             checkUnexpectedValue(secondOperand);

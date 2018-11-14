@@ -25,20 +25,38 @@ namespace app
             this.secondOperand = operand;
         }
 
-        public abstract Double Execute();
+        protected abstract Double Execute();
 
         public override string ToString()
         {
             return "It's not implemented two operand command";
         }
 
-        public void checkUnexpectedValue(double value)
+        public double SafeExecute()
         {
-            if (value != null || value != double.NaN || value != double.NegativeInfinity
-                || value != Double.PositiveInfinity)
+            if(checkUnexpectedValue(firstOperand)|| checkUnexpectedValue(secondOperand))
             {
                 throw new UnexpectedValueException();
             }
+            else
+            {
+                var result = Execute();
+                if (checkUnexpectedValue(result))
+                {
+                    throw new UnexpectedValueException();
+                }
+                else
+                {
+                    return result;
+                }
+            }
+        }
+
+        public bool checkUnexpectedValue(double value)
+        {
+            return Double.IsNaN(value) ||
+                Double.IsNegativeInfinity(value) ||
+                Double.IsPositiveInfinity(value) ;
         }
     }
 }

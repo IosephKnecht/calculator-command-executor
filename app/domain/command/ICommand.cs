@@ -13,8 +13,8 @@ namespace app
         /// Method execute action in command;
         /// </summary>
         /// <returns></returns>
-        Double Execute();
+        Double SafeExecute();
 
-        void checkUnexpectedValue(Double value);
+        bool checkUnexpectedValue(Double value);
     }
 }
