@@ -40,12 +40,12 @@ namespace arifmetical_library_test
 
         public virtual void PositiveTestTwoOperandCommand()
         {
-            Assert.AreEqual(expectedValue, this.command.Execute());
+            Assert.AreEqual(expectedValue, this.command.SafeExecute());
         }
 
         public virtual void NegativeTestTwoOperandCommand()
         {
-            Assert.AreNotEqual(expectedValue, this.command.Execute());
+            Assert.AreNotEqual(expectedValue, this.command.SafeExecute());
         }
     }
 }

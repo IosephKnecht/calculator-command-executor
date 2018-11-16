@@ -68,6 +68,7 @@
             // 
             // execute_button
             // 
+            this.execute_button.Enabled = false;
             this.execute_button.Location = new System.Drawing.Point(189, 96);
             this.execute_button.Name = "execute_button";
             this.execute_button.Size = new System.Drawing.Size(100, 23);

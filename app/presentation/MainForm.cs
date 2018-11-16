@@ -49,6 +49,8 @@ namespace app.presentation
                 }
                 CleanTextView();
                 ReloadBackColor();
+                execute_button.Enabled = false;
+                Clipboard.Clear();
             });
 
             viewModel.GetCommandListObservable().Observe(list =>
@@ -66,6 +68,25 @@ namespace app.presentation
             {
                 MessageBox.Show(error.Message);
             });
+
+            compositeDisposable.Add(firsrOperandSubject.CombineLatest(secondOperandSubject, (f, l) =>
+            ArgumentValidator.isDouble(f) && ArgumentValidator.isDouble(l))
+                .SubscribeOn(Scheduler.Immediate)
+                .ObserveOn(execute_button)
+                .Subscribe(result =>
+                {
+                    execute_button.Enabled = result;
+                }));
+
+            compositeDisposable.Add(firsrOperandSubject
+                .Where(val => viewModel.GetCurrentCommandObservable().GetValue() is OneOperandCommand)
+                .Select(val => ArgumentValidator.isDouble(val))
+                .SubscribeOn(Scheduler.Immediate)
+                .ObserveOn(execute_button)
+                .Subscribe(result =>
+                {
+                    execute_button.Enabled = result;
+                }));
 
             compositeDisposable.Add(firsrOperandSubject.Throttle(TimeSpan.FromMilliseconds(500))
                 .SubscribeOn(scheduler: Scheduler.Immediate)
