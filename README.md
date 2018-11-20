@@ -15,3 +15,10 @@ Task for university. The implementation of the simplest calculator.
 то кнопка "=" недоступна для клика).
 - Программа должна получать команды перед запуском в откомпилированном виде.
 - Все команды должны обладать общим API.
+
+
+<img src="https://user-images.githubusercontent.com/26083647/48792094-70079f80-ed04-11e8-96db-e7d9f0a1b60d.png" width="320px" height="170px"></img>
+<img src="https://user-images.githubusercontent.com/26083647/48792140-831a6f80-ed04-11e8-9c7a-ceff476e5f25.png" width="320px" height="170px"></img>
+<img src="https://user-images.githubusercontent.com/26083647/48792148-89a8e700-ed04-11e8-8af0-a0fb78214f2f.png" width="320px" height="170px"></img>
+<img src="https://user-images.githubusercontent.com/26083647/48792160-9299b880-ed04-11e8-8f5a-3e65cf015b6f.png" width="320px" height="170px"></img>
+<img src="https://user-images.githubusercontent.com/26083647/48792200-b0671d80-ed04-11e8-972d-9b5b18f4423e.png" width="320px" height="170px"></img>
