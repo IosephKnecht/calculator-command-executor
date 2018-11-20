@@ -69,6 +69,9 @@ namespace app.presentation
                 MessageBox.Show(error.Message);
             });
 
+            /* TODO: dirty hack for notification execute_button of success validation
+             * for TwoOperandCommand
+            */
             compositeDisposable.Add(firsrOperandSubject.CombineLatest(secondOperandSubject, (f, l) =>
             ArgumentValidator.isDouble(f) && ArgumentValidator.isDouble(l))
                 .SubscribeOn(Scheduler.Immediate)
@@ -78,6 +81,9 @@ namespace app.presentation
                     execute_button.Enabled = result;
                 }));
 
+            /* TODO: dirty hack for notification execute_button of success validation
+             * for OneOperandCommand
+            */
             compositeDisposable.Add(firsrOperandSubject
                 .Where(val => viewModel.GetCurrentCommandObservable().GetValue() is OneOperandCommand)
                 .Select(val => ArgumentValidator.isDouble(val))
