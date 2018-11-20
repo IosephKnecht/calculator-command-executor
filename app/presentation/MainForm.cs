@@ -49,6 +49,8 @@ namespace app.presentation
                 }
                 CleanTextView();
                 ReloadBackColor();
+                execute_button.Enabled = false;
+                Clipboard.Clear();
             });
 
             viewModel.GetCommandListObservable().Observe(list =>
@@ -59,12 +61,38 @@ namespace app.presentation
             viewModel.GetResultObservable().Observe(result =>
             {
                 tv_result.Text = result.ToString();
+                Clipboard.SetText(result.ToString());
             });
 
             viewModel.GetThrowableObservable().Observe(error =>
             {
                 MessageBox.Show(error.Message);
             });
+
+            /* TODO: dirty hack for notification execute_button of success validation
+             * for TwoOperandCommand
+            */
+            compositeDisposable.Add(firsrOperandSubject.CombineLatest(secondOperandSubject, (f, l) =>
+            ArgumentValidator.isDouble(f) && ArgumentValidator.isDouble(l))
+                .SubscribeOn(Scheduler.Immediate)
+                .ObserveOn(execute_button)
+                .Subscribe(result =>
+                {
+                    execute_button.Enabled = result;
+                }));
+
+            /* TODO: dirty hack for notification execute_button of success validation
+             * for OneOperandCommand
+            */
+            compositeDisposable.Add(firsrOperandSubject
+                .Where(val => viewModel.GetCurrentCommandObservable().GetValue() is OneOperandCommand)
+                .Select(val => ArgumentValidator.isDouble(val))
+                .SubscribeOn(Scheduler.Immediate)
+                .ObserveOn(execute_button)
+                .Subscribe(result =>
+                {
+                    execute_button.Enabled = result;
+                }));
 
             compositeDisposable.Add(firsrOperandSubject.Throttle(TimeSpan.FromMilliseconds(500))
                 .SubscribeOn(scheduler: Scheduler.Immediate)

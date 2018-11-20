@@ -32,12 +32,12 @@ namespace arifmetical_library_test
 
         public virtual void PositiveTestOneOperandCommand()
         {
-            Assert.AreEqual(Math.Round(expectedValue, 3), Math.Round(command.Execute(), 3));
+            Assert.AreEqual(Math.Round(expectedValue, 3), Math.Round(command.SafeExecute(), 3));
         }
 
         public virtual void NegativeTestOneOperandCommand()
         {
-            Assert.AreNotEqual(Math.Round(expectedValue, 3), Math.Round(command.Execute(), 3));
+            Assert.AreNotEqual(Math.Round(expectedValue, 3), Math.Round(command.SafeExecute(), 3));
         }
     }
 }

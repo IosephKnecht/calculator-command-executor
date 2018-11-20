@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="data\exception\ArgumentCastException.cs" />
     <Compile Include="data\exception\InputArgumenException.cs" />
+    <Compile Include="data\exception\UnexpectedValueException.cs" />
     <Compile Include="data\exception\UnknownTypeCommand.cs" />
     <Compile Include="domain\ArgumentValidator.cs" />
     <Compile Include="domain\CommandInjector.cs" />

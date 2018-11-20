@@ -5,8 +5,9 @@ namespace arifmetical_library
 {
     public class SinusCommand:OneOperandCommand
     {
-        public override double Execute()
+        protected override double Execute()
         {
+            checkUnexpectedValue(operand);
             return Math.Sin(operand);
         }
 

@@ -4,8 +4,10 @@ namespace arifmetical_library
 {
     public class DivisionWithRemainderCommand:TwoOperandCommand
     {
-        public override double Execute()
+        protected override double Execute()
         {
+            checkUnexpectedValue(firstOperand);
+            checkUnexpectedValue(secondOperand);
             return firstOperand % secondOperand;
         }
 

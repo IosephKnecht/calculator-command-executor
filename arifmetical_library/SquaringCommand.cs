@@ -5,8 +5,9 @@ namespace arifmetical_library
 {
     public class SquaringCommand:OneOperandCommand
     {
-        public override double Execute()
+        protected override double Execute()
         {
+            checkUnexpectedValue(operand);
             return Math.Pow(operand, 2);
         }
 
