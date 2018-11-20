@@ -6,18 +6,24 @@ using System.Threading.Tasks;
 
 namespace app.presentation
 {
+    /// <summary>
+    /// Interface for business logic of ViewModel.
+    /// </summary>
     interface Interactor
     {
         void GetCommands();
-        void ExecuteCommand();
+        void ExecuteCommand(params object[] values);
     }
 
+    /// <summary>
+    /// Interface for presentation logic of ViewModel.
+    /// </summary>
     interface ViewModel
     {
-        LiveData<ICommand> GetCurrentCommandObservable();
-        LiveData<List<ICommand>> GetCommandListObservable();
-        LiveData<Double> GetResultObservable();
-        LiveData<Exception> GetThrowableObservable();
+        IMutableLiveData<ICommand> GetCurrentCommandObservable();
+        ILiveData<List<ICommand>> GetCommandListObservable();
+        ILiveData<Double> GetResultObservable();
+        ILiveData<Exception> GetThrowableObservable();
 
         void Unsubscribe();
     }

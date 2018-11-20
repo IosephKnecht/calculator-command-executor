@@ -9,7 +9,12 @@ namespace app
 
     public interface ICommand
     {
-        Double Execute();
-        String GetName();
+        /// <summary>
+        /// Method execute action in command;
+        /// </summary>
+        /// <returns></returns>
+        Double SafeExecute();
+
+        bool checkUnexpectedValue(Double value);
     }
 }

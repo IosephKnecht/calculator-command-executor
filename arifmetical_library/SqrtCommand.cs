@@ -9,9 +9,15 @@ namespace arifmetical_library
 {
     public class SqrtCommand : OneOperandCommand
     {
-        public override Double Execute()
+        protected override Double Execute()
         {
+            checkUnexpectedValue(operand);
             return Math.Sqrt(operand);
+        }
+
+        public override string ToString()
+        {
+            return "square root";
         }
     }
 }

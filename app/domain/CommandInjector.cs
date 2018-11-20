@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace app
 {
+    /// <summary>
+    /// Singleton service for inject command from dll's file.
+    /// </summary>
     class CommandInjector
     {
         private static CommandInjector commandInjector = null;
@@ -41,11 +44,13 @@ namespace app
         {
             List<ICommand> commands = new List<ICommand>();
 
+            if (!Directory.Exists(path)) Directory.CreateDirectory(path);
+
             foreach (string dllPath in Directory.EnumerateFiles(path, "*.dll"))
             {
                 try
                 {
-                    Assembly dll = Assembly.LoadFile(dllPath);
+                    Assembly dll = Assembly.LoadFile(Path.GetFullPath(dllPath));
 
                     foreach (Type type in dll.GetExportedTypes())
                     {

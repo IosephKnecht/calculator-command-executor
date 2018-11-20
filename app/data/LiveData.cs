@@ -6,28 +6,60 @@ using System.Threading.Tasks;
 
 namespace app
 {
-    class LiveData<T>
+
+    interface IMutableLiveData<T>:ILiveData<T>
     {
-        public delegate void Change(T value);
+        /// <summary>
+        /// Mehod for set value in wrapper and notify all observers.
+        /// </summary>
+        /// <param name="value">new value</param>
+        void SetValue(T value);
+    }
 
-        private T pep = default(T);
+    public interface ILiveData<T>
+    {
+        /// <summary>
+        /// Method for contains logic after notify.  
+        /// </summary>
+        /// <param name="block">logic's block</param>
+        void Observe(Action<T> block);
 
-        private List<Change> changes = new List<Change>();
+        /// <summary>
+        /// Mehod for get value on wrapper;
+        /// </summary>
+        /// <returns>wrapper value</returns>
+        T GetValue();
 
-        public void Observe(Change block)
+        /// <summary>
+        /// Method for unsubscribe all observers.
+        /// </summary>
+        void Unsubscribe();
+    }
+
+    /// <summary>
+    /// Wrapper for observable data.
+    /// </summary>
+    /// <typeparam name="T">data type</typeparam>
+    class LiveData<T>:ILiveData<T>,IMutableLiveData<T>
+    {
+        private T value = default(T);
+
+        private List<Action<T>> changes = new List<Action<T>>();
+
+        public void Observe(Action<T> block)
         {
             changes.Add(block);
         }
 
         public void SetValue(T value)
         {
-            this.pep = value;
+            this.value = value;
             changes.ForEach(element => { element.Invoke(value); });
         }
 
         public T GetValue()
         {
-            return this.pep;
+            return this.value;
         }
 
         public void Unsubscribe()

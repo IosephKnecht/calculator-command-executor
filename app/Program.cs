@@ -17,7 +17,7 @@ namespace app
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            CommandInjector.Instance.EnumeratePluginClasses("C:/Users/IosephKnecht/source/repos/calculator_solution");
+            CommandInjector.Instance.EnumeratePluginClasses("commands/");
             Application.Run(new MainForm());
         }
     }
